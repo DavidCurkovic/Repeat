@@ -1,0 +1,67 @@
+﻿@model Repeat.Models.Event
+@{
+    ViewData["Title"] = "Edit";
+}
+<h1>Edit</h1>
+<h4>Event</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="EventId" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Genre" class="control-label"></label>
+                <input asp-for="Genre" class="form-control" />
+                <span asp-validation-for="Genre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tickets" class="control-label"></label>
+                <input asp-for="Tickets" class="form-control" />
+                <span asp-validation-for="Tickets" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Beginning" class="control-label"></label>
+                <input asp-for="Beginning" class="form-control" />
+                <span asp-validation-for="Beginning" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ending" class="control-label"></label>
+                <input asp-for="Ending" class="form-control" />
+                <span asp-validation-for="Ending" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                @Html.TextAreaFor(model => model.Description, new { @class = "form-control", @rows = 4 })
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClubId" class="control-label">Club</label>
+                <select asp-for="ClubId" class="form-control" asp-items="@(new SelectList(ViewBag.ClubList, "ClubId", "Name"))"></select>
+                <span asp-validation-for="ClubId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageId" class="control-label">Image Name</label>
+                <select asp-for="ImageId" class="form-control" asp-items="@(new SelectList(ViewBag.ImageList, "ImageId", "ImageName"))"></select>
+                <span asp-validation-for="ImageId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-success" />
+                <a asp-action="Index" class="btn btn-primary">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

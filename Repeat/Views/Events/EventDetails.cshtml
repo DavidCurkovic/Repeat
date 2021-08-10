@@ -1,0 +1,74 @@
+﻿@model Repeat.Models.Event
+@{
+    ViewData["Title"] = "EventDetails";
+}
+<div class="event_details">
+    <div class="event_details__card">
+        <img src="@("~/Image/"+ViewData["Image"])" asp-append-version="true" class="card__banner" alt="Event Picture">
+        <div class="event_details__body">
+            <div class="event_details__cardlogo">
+                <img src="/Logo/logo.png" class="event_details__card_logo_image" alt="Logo">
+            </div>
+            <div class="event_details__cardinfo">
+                <div class="event_details__title">@Html.DisplayFor(model => model.Name)</div>
+                <a asp-controller="Clubs" asp-action="ClubDetails" asp-route-id="@Model.ClubId" class="event_details__subtitle">@ViewData["ClubName"].ToString()</a>
+            </div>
+        </div>
+    </div>
+    <div class="event_details__infoblock">
+        <div class="event_details__info">
+            <dl class="row event_details__row">
+                <dt class="col-sm-2 event_details__item">
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+                <dt class="col-sm-2 event_details__item">
+                    @Html.DisplayNameFor(model => model.Genre)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Genre)
+                </dd>
+                <dt class="col-sm-2 event_details__item">
+                    @Html.DisplayNameFor(model => model.Price)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Price)
+                    kn
+                </dd>
+                <dt class="col-sm-2 event_details__item">
+                    Tickets
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Tickets)
+                    (<a asp-controller="Tickets" asp-action="EventTickets" asp-route-id="@Model.EventId" class="event_details_row__link">Buy tickets</a>)
+                </dd>
+                <dt class="col-sm-2 event_details__item">
+                    @Html.DisplayNameFor(model => model.Beginning)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Beginning)
+                </dd>
+                <dt class="col-sm-2 event_details__item">
+                    @Html.DisplayNameFor(model => model.Ending)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Ending)
+                </dd>
+                <dt class="col-sm-2 event_details__item">
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+                <dt class="col-sm-2 event_details__item">
+                    Club
+                </dt>
+                <dd class="col-sm-10">
+                    <a asp-controller="Clubs" asp-action="ClubDetails" asp-route-id="@Model.ClubId" class="event_details_row__link">@ViewData["ClubName"].ToString()</a>
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>

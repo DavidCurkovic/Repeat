@@ -1,0 +1,84 @@
+﻿@model Repeat.Models.Club
+@{
+    ViewData["Title"] = "ClubDetails";
+}
+<div class="club_details__row row">
+    <div class="club_details__infolist col-12 col-sm-6">
+        <dl class="row club_details__list">
+            <dt class="col-sm-4 club_details__item">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt class="col-sm-4 club_details__item">
+                @Html.DisplayNameFor(model => model.City)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.City)
+            </dd>
+            <dt class="col-sm-4 club_details__item">
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+            <dt class="col-sm-4 club_details__item">
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+            <dt class="col-sm-4 club_details__item">
+                @Html.DisplayNameFor(model => model.Phone)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Phone)
+            </dd>
+        </dl>
+    </div>
+    <div class="club_details__location col-12 col-sm-6">
+        <div id="club_details__map" latitude="@Model.Latitude" longitude="@Model.Longitude">
+        </div>
+    </div>
+</div>
+<div class="club_details__eventlist">
+    <table class="table table-borderless club_details__table">
+        <thead class="thead club_details__thead">
+            <tr>
+                <th>
+                    Events
+                </th>
+                <th>
+                    Beginning
+                </th>
+                <th>
+                    Ending
+                </th>
+                <th>
+                    Price
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Events)
+            {
+                <tr>
+                    <td>
+                        <a class="club_details__link" asp-controller="Events" asp-action="EventDetails" asp-route-id="@item.EventId">@Html.DisplayFor(modelItem => item.Name)</a>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Beginning)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ending)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price) kn
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

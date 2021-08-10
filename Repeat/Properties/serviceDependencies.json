@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "mssql3": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:EventContext"
+    },
+    "mssql4": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:ImageContext"
+    },
+    "secrets1": {
+      "type": "secrets"
+    },
+    "mssql5": {
+      "type": "mssql",
+      "connectionId": "RepeatDBConnectionString"
+    },
+    "mssql2": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:ClubContext"
+    },
+    "mssql1": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:DefaultConnection"
+    }
+  }
+}

@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Repeat.ViewModel.HomeViewModel>
+@{
+    ViewData["Title"] = "Events";
+}
+<p>
+    <a asp-action="Create" class="btn btn-success">Create New</a>
+</p>
+<table class="table table-light table-striped" id="table-id">
+    <thead class="thead-light">
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Club
+            </th>
+            <th>
+                Genre
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Tickets
+            </th>
+            <th>
+                Beginning
+            </th>
+            <th>
+                Ending
+            </th>
+            <th>
+                Description
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.eventVm.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.clubVm.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.eventVm.Genre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.eventVm.Price)
+                kn
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.eventVm.Tickets)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.eventVm.Beginning)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.eventVm.Ending)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.eventVm.Description)
+            </td>
+            <td class="table_buttons">
+                <a asp-action="Edit" asp-route-id="@item.eventVm.EventId" class="btn btn-secondary">Edit</a>
+                <a asp-action="Details" asp-route-id="@item.eventVm.EventId" class="btn btn-info">Details</a>
+                <a asp-action="Delete" asp-route-id="@item.eventVm.EventId" class="btn btn-danger"> Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

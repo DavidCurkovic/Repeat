@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Repeat.ViewModel.HomeViewModel>
+@{
+    ViewData["Title"] = "Home";
+}
+<div class="filter_city">
+    <h2 class="filter_city__title">Party, Eat, <b class="filter_city__title_repeat">Repeat</b>!</h2>
+    <select class="filter_city__js">
+        <option value="">--- Choose city ---</option>
+    </select>
+</div>
+<div class="row grid js-grid">
+    @foreach (var item in Model)
+    {
+        <div class="card col-12 col-sm-6 col-md-4" data-city="@item.clubVm.City">
+            <a asp-controller="Events" asp-action="EventDetails" asp-route-id="@item.eventVm.EventId" class="card__inner">
+                <img src="@("~/Image/"+item.imageVm.ImageName)" asp-append-version="true" class="card__banner" alt="Event Picture">
+                <div class="card__body">
+                    <div class="card__logo">
+                        <img src="/Logo/logo.png" class="card__logo_image" alt="Logo">
+                    </div>
+                    <div class="card__info">
+                        <div class="title">@item.eventVm.Name in @item.clubVm.Name</div>
+                        <div class="subtitle">@item.eventVm.Beginning</div>
+                    </div>
+                </div>
+            </a>
+            <div class="card__footer">
+                <ul class="card__list">
+                    <li class="card__item">
+                        <div class="card__link">
+                            <i class="fas fa-dollar-sign c-blue"></i>
+                            <a asp-controller="Tickets" asp-action="EventTickets" asp-route-id="@item.eventVm.EventId" class="card_link__number_tickets">Buy</a>
+                        </div>
+                    </li>
+                    <li class="card__item">
+                        <div class="card__link">
+                            <i class="fas fa-tags c-blue"></i>
+                            <div class="card_link__number_price">@item.eventVm.Price kn</div>
+                        </div>
+                    </li>
+                    <li class="card__item">
+                        <a href="https://hr-hr.facebook.com" class="card__link c-blue">
+                            <i class="fas fa-share"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    }
+</div>

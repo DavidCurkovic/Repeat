@@ -17,6 +17,7 @@ Za administratora:
 - potpuna kontrola nad upravljanjem događaja
 - logiranje admina sa valjanim podacima (e-mail, lozinka)
 
+
 Ova web aplikacija nudi prekrasan dizajn pregleda klubova u obliku kartica sa informacijama o klubovima i događajima na jednom mjestu.
 Aplikacija sadrži opciju kupovanja karata za željeni događaj prilikom koje korisnik mora biti registriran i ulogiran u sustav.
 Olakšava upravljanje događajima i klubovima od strane administratora i potpunu kontrolu nad prethodno navedenim informacijama.
